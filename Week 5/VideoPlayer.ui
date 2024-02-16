@@ -1,0 +1,530 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>605</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>160</y>
+      <width>541</width>
+      <height>241</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>0</width>
+      <height>221</height>
+     </size>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::WinPanel</enum>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="textFormat">
+     <enum>Qt::AutoText</enum>
+    </property>
+    <property name="pixmap">
+     <pixmap>C:/Users/HS/Downloads/Green and White Doodle Group Project Presentation.jpg</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="wordWrap">
+     <bool>true</bool>
+    </property>
+    <property name="openExternalLinks">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="rdbtnSort">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>120</y>
+      <width>91</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel {
+        color: white;
+        background-color: rgba(52, 73, 94, 200);  /* Semi-transparent background color */
+        border-radius: 5px;
+        padding: 5px;
+        border: 1px solid rgba(0, 0, 0, 50);  /* Semi-transparent border */
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 50);  /* Shadow effect */
+    }</string>
+    </property>
+    <property name="text">
+     <string>Webcam</string>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>webcam.png</normaloff>webcam.png</iconset>
+    </property>
+   </widget>
+   <widget class="QLabel" name="MainHeadinglbl">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>0</y>
+      <width>201</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>20</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel {
+        color: white;
+        background-color: rgba(52, 73, 94, 200);  /* Semi-transparent background color */
+        border-radius: 5px;
+        padding: 5px;
+        border: 1px solid rgba(0, 0, 0, 50);  /* Semi-transparent border */
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 50);  /* Shadow effect */
+    }</string>
+    </property>
+    <property name="text">
+     <string>Video Player</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnBrowse_2">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>70</y>
+      <width>111</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+        background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, 
+            stop:0 rgba(231, 76, 60, 255), stop:1 rgba(192, 57, 43, 255));
+        border: 1px solid #c0392b;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        icon-size: 32px;  /* Adjust the icon size as needed */
+        icon-color: white;  /* Set the icon color */
+        icon-alignment: center;  /* Center the icon */
+    }
+    
+    QPushButton:hover {
+        background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, 
+            stop:0 rgba(192, 57, 43, 255), stop:1 rgba(231, 76, 60, 255));
+        border: 1px solid #e74c3c;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.3);
+    }
+    
+    QPushButton:pressed {
+        background-color: rgba(192, 57, 43, 255);
+        border: 1px solid #c0392b;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+    }</string>
+    </property>
+    <property name="text">
+     <string>Capture Video</string>
+    </property>
+    <property name="flat">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="Speedlbl">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>430</y>
+      <width>61</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel {
+        color: white;
+        background-color: rgba(52, 73, 94, 200);  /* Semi-transparent background color */
+        border-radius: 5px;
+        padding: 5px;
+        border: 1px solid rgba(0, 0, 0, 50);  /* Semi-transparent border */
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 50);  /* Shadow effect */
+    }</string>
+    </property>
+    <property name="text">
+     <string>Speed</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="availableCameras">
+    <property name="geometry">
+     <rect>
+      <x>630</x>
+      <y>80</y>
+      <width>101</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="availableFilters">
+    <property name="geometry">
+     <rect>
+      <x>630</x>
+      <y>420</y>
+      <width>101</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+   </widget>
+   <widget class="QSlider" name="Speedslider">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>430</y>
+      <width>160</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>160</width>
+      <height>0</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>160</width>
+      <height>22</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel {
+        color: white;
+        background-color: rgba(52, 73, 94, 200);  /* Semi-transparent background color */
+        border-radius: 5px;
+        padding: 5px;
+        border: 1px solid rgba(0, 0, 0, 50);  /* Semi-transparent border */
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 50);  /* Shadow effect */
+    }</string>
+    </property>
+    <property name="minimum">
+     <number>-2</number>
+    </property>
+    <property name="maximum">
+     <number>2</number>
+    </property>
+    <property name="pageStep">
+     <number>1</number>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QSlider" name="verticalSlider">
+    <property name="geometry">
+     <rect>
+      <x>640</x>
+      <y>170</y>
+      <width>22</width>
+      <height>211</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel {
+        color: white;
+        background-color: rgba(52, 73, 94, 200);  /* Semi-transparent background color */
+        border-radius: 5px;
+        padding: 5px;
+        border: 1px solid rgba(0, 0, 0, 50);  /* Semi-transparent border */
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 50);  /* Shadow effect */
+    }</string>
+    </property>
+    <property name="maximum">
+     <number>255</number>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="Speedlbl_2">
+    <property name="geometry">
+     <rect>
+      <x>670</x>
+      <y>250</y>
+      <width>91</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel {
+        color: white;
+        background-color: rgba(52, 73, 94, 200);  /* Semi-transparent background color */
+        border-radius: 5px;
+        padding: 5px;
+        border: 1px solid rgba(0, 0, 0, 50);  /* Semi-transparent border */
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 50);  /* Shadow effect */
+    }</string>
+    </property>
+    <property name="text">
+     <string>Grey Scale</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblDataSource_2">
+    <property name="geometry">
+     <rect>
+      <x>490</x>
+      <y>80</y>
+      <width>121</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel {
+        color: white;
+        background-color: rgba(52, 73, 94, 200);  /* Semi-transparent background color */
+        border-radius: 5px;
+        padding: 5px;
+        border: 1px solid rgba(0, 0, 0, 50);  /* Semi-transparent border */
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 50);  /* Shadow effect */
+    }</string>
+    </property>
+    <property name="text">
+     <string>Select Camera</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnRefresh">
+    <property name="geometry">
+     <rect>
+      <x>520</x>
+      <y>120</y>
+      <width>101</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+        background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, 
+            stop:0 rgba(39, 174, 96, 255), stop:1 rgba(46, 204, 113, 255));
+        border: 1px solid #27ae60;
+        color: white;
+        padding: 8px 16px;
+        border-radius: 5px;
+    }
+    
+    QPushButton:hover {
+        background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, 
+            stop:0 rgba(22, 160, 133, 255), stop:1 rgba(39, 174, 96, 255));
+        border: 1px solid #2ecc71;
+        color: white;
+        padding: 8px 16px;
+        border-radius: 5px;
+        box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.3);
+    }
+    
+    QPushButton:pressed {
+        background-color: rgba(39, 174, 96, 255);
+        border: 1px solid #27ae60;
+        color: white;
+        padding: 8px 16px;
+        border-radius: 5px;
+    }</string>
+    </property>
+    <property name="text">
+     <string>Clear Video</string>
+    </property>
+    <property name="autoDefault">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblDataSource">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>70</y>
+      <width>121</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel {
+        color: white;
+        background-color: rgba(52, 73, 94, 200);  /* Semi-transparent background color */
+        border-radius: 5px;
+        padding: 5px;
+        border: 1px solid rgba(0, 0, 0, 50);  /* Semi-transparent border */
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 50);  /* Shadow effect */
+    }</string>
+    </property>
+    <property name="text">
+     <string>Import Video</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblDataSource_3">
+    <property name="geometry">
+     <rect>
+      <x>560</x>
+      <y>420</y>
+      <width>61</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel {
+        color: white;
+        background-color: rgba(52, 73, 94, 200);  /* Semi-transparent background color */
+        border-radius: 5px;
+        padding: 5px;
+        border: 1px solid rgba(0, 0, 0, 50);  /* Semi-transparent border */
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 50);  /* Shadow effect */
+    }</string>
+    </property>
+    <property name="text">
+     <string>Filters</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnBrowse">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>70</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+        background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, 
+            stop:0 rgba(255, 168, 0, 255), stop:1 rgba(255, 87, 34, 255));
+        border: 2px solid #d35400;
+        color: white;
+        padding: 8px 16px;
+        border-radius: 10px;
+    }
+    
+    QPushButton:hover {
+        background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, 
+            stop:0 rgba(255, 138, 0, 255), stop:1 rgba(255, 71, 26, 255));
+        border: 2px solid #d35400;
+        color: white;
+        padding: 8px 16px;
+        border-radius: 10px;
+        box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.3);
+    }
+    
+    QPushButton:pressed {
+        background-color: rgba(255, 87, 34, 255);
+        border: 2px solid #d35400;
+        color: white;
+        padding: 8px 16px;
+        border-radius: 10px;
+    }</string>
+    </property>
+    <property name="text">
+     <string>Browse</string>
+    </property>
+    <property name="flat">
+     <bool>false</bool>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuVideo_Player">
+    <property name="title">
+     <string>Video Player</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menuImage_Player">
+    <property name="title">
+     <string>Image Player</string>
+    </property>
+   </widget>
+   <addaction name="menuVideo_Player"/>
+   <addaction name="menuImage_Player"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
