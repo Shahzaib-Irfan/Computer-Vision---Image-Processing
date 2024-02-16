@@ -101,6 +101,7 @@ class Ui_ImagePlayer(object):
 "        box-shadow: 2px 2px 5px rgba(0, 0, 0, 50);  /* Shadow effect */\n"
 "    }")
         self.verticalSlider.setMaximum(255)
+        self.verticalSlider.setValue(127)
         self.verticalSlider.setOrientation(QtCore.Qt.Vertical)
         self.verticalSlider.setObjectName("verticalSlider")
         self.Speedlbl_2 = QtWidgets.QLabel(self.centralwidget)
