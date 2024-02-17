@@ -2,6 +2,7 @@ from PyQt5.QtWidgets import QApplication, QMainWindow, QFileDialog
 from PyQt5.QtCore import QTimer
 from PyQt5.QtGui import QImage, QPixmap
 from VideoPlayer import Ui_VideoPlayer
+from opencv_filters import filters
 import time
 from datetime import datetime
 import cv2
@@ -27,6 +28,7 @@ class VideoPlayer_Backend:
         self.ui.Speedslider.valueChanged.connect(self.updateVideoSpeed)
         self.ui.verticalSlider.valueChanged.connect(self.updateGrayScaleValue)
         self.ui.rdbtnSort.clicked.connect(self.updateWebcamChecked)
+        self.ui.availableFilters.addItems(filters)
 
         self.timer = QTimer(self.VideoPlayer)
         self.timer.timeout.connect(self.updateFrame)

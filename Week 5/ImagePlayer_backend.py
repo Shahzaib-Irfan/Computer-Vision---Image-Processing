@@ -2,6 +2,8 @@ from PyQt5.QtWidgets import QApplication, QMainWindow, QFileDialog
 from PyQt5.QtCore import QTimer
 from PyQt5.QtGui import QImage, QPixmap
 from ImagePlayer import Ui_ImagePlayer
+from opencv_filters import filters
+from Navigator import Page2
 from datetime import datetime
 import cv2
 import sys
@@ -20,11 +22,16 @@ class ImagePlayer_Backend:
 
         self.camera_index = self.ui.availableCameras.currentData() if self.ui.availableCameras.currentData() is not None else 0
         self.grayScale_value = self.ui.verticalSlider.value()
+        self.filter_name = self.ui.availableFilters.currentData() if self.ui.availableFilters.currentData() is not None else ""
         self.ui.availableCameras.addItems(self.get_available_cameras())
         self.ui.availableCameras.currentIndexChanged.connect(lambda: self.updateCameraData(self.ui.availableCameras.currentText()))
+        self.ui.availableFilters.currentIndexChanged.connect(lambda: self.updateFilterData(self.ui.availableFilters.currentText()))
         self.ui.btnBrowse_2.pressed.connect(self.capture)
         self.ui.verticalSlider.valueChanged.connect(self.updateGrayScaleValue)
         self.ui.verticalSlider.valueChanged.connect(self.updateFrame)
+        self.ui.availableFilters.currentIndexChanged.connect(self.updateFrame)
+
+        self.ui.availableFilters.addItems(filters)
 
         self.timer = QTimer(self.ImagePlayer)
         self.timer.timeout.connect(self.updateFrame)
@@ -34,7 +41,9 @@ class ImagePlayer_Backend:
 
     def updateCameraData(self, data):
         self.camera_index = int(data)
-
+    
+    def updateFilterData(self, data):
+        self.filter_name = data
     def updateGrayScaleValue(self, value):
         self.grayScale_value = value
     
@@ -105,7 +114,7 @@ class ImagePlayer_Backend:
             gray_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
             gray_frame = cv2.convertScaleAbs(gray_frame, alpha=self.grayScale_value / 255.0)
             q_image = QImage(gray_frame.data, gray_frame.shape[1], gray_frame.shape[0], gray_frame.strides[0], QImage.Format_Grayscale8)
-
+        
         pixmap = QPixmap.fromImage(q_image)
         self.ui.label.setPixmap(pixmap)
         self.ui.label.setScaledContents(True)

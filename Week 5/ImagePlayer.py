@@ -91,7 +91,7 @@ class Ui_ImagePlayer(object):
         self.availableFilters.setFont(font)
         self.availableFilters.setObjectName("availableFilters")
         self.verticalSlider = QtWidgets.QSlider(self.centralwidget)
-        self.verticalSlider.setGeometry(QtCore.QRect(610, 170, 22, 211))
+        self.verticalSlider.setGeometry(QtCore.QRect(610, 250, 22, 211))
         self.verticalSlider.setStyleSheet("QLabel {\n"
 "        color: white;\n"
 "        background-color: rgba(52, 73, 94, 200);  /* Semi-transparent background color */\n"
