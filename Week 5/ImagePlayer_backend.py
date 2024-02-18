@@ -2,7 +2,7 @@ from PyQt5.QtWidgets import QApplication, QMainWindow, QFileDialog
 from PyQt5.QtCore import QTimer
 from PyQt5.QtGui import QImage, QPixmap
 from ImagePlayer import Ui_ImagePlayer
-from opencv_filters import filters
+from opencv_filters import filters, apply_filter, filters_func
 from Navigator import Page2
 from datetime import datetime
 import cv2
@@ -15,21 +15,20 @@ class ImagePlayer_Backend:
         self.ui = Ui_ImagePlayer()
         self.ui.setupUi(self.ImagePlayer)
         self.ImagePlayer.show()
-        self.image_path = None
 
         self.ui.btnBrowse.pressed.connect(self.browseFile)
         self.ui.btnRefresh.pressed.connect(self.clearImage)
 
         self.camera_index = self.ui.availableCameras.currentData() if self.ui.availableCameras.currentData() is not None else 0
         self.grayScale_value = self.ui.verticalSlider.value()
-        self.filter_name = self.ui.availableFilters.currentData() if self.ui.availableFilters.currentData() is not None else ""
+        self.filter_name = ""
         self.ui.availableCameras.addItems(self.get_available_cameras())
         self.ui.availableCameras.currentIndexChanged.connect(lambda: self.updateCameraData(self.ui.availableCameras.currentText()))
         self.ui.availableFilters.currentIndexChanged.connect(lambda: self.updateFilterData(self.ui.availableFilters.currentText()))
         self.ui.btnBrowse_2.pressed.connect(self.capture)
         self.ui.verticalSlider.valueChanged.connect(self.updateGrayScaleValue)
         self.ui.verticalSlider.valueChanged.connect(self.updateFrame)
-        self.ui.availableFilters.currentIndexChanged.connect(self.updateFrame)
+        #self.ui.availableFilters.currentIndexChanged.connect(self.updateFrame)
 
         self.ui.availableFilters.addItems(filters)
 
@@ -100,6 +99,7 @@ class ImagePlayer_Backend:
 
         self.ui.label.setPixmap(pixmap)
         self.ui.label.setScaledContents(True)
+        self.timer.start(int(1000 / 40))
     
     def updateFrame(self):
         frame = self.image
@@ -115,6 +115,12 @@ class ImagePlayer_Backend:
             gray_frame = cv2.convertScaleAbs(gray_frame, alpha=self.grayScale_value / 255.0)
             q_image = QImage(gray_frame.data, gray_frame.shape[1], gray_frame.shape[0], gray_frame.strides[0], QImage.Format_Grayscale8)
         
+        if self.filter_name is not "" and self.grayScale_value is not 127:
+            filtered_frame = apply_filter(self.filter_name, gray_frame)
+            q_image = QImage(filtered_frame.data, filtered_frame.shape[1], filtered_frame.shape[0], filtered_frame.strides[0], QImage.Format_Grayscale8)
+        elif self.filter_name is not "" and self.grayScale_value is 127:
+            filtered_frame = apply_filter(self.filter_name, frame)
+            q_image = QImage(filtered_frame.data, filtered_frame.shape[1], filtered_frame.shape[0], filtered_frame.strides[0], QImage.Format_BGR888)
         pixmap = QPixmap.fromImage(q_image)
         self.ui.label.setPixmap(pixmap)
         self.ui.label.setScaledContents(True)
