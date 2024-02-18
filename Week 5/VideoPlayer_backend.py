@@ -2,7 +2,7 @@ from PyQt5.QtWidgets import QApplication, QMainWindow, QFileDialog
 from PyQt5.QtCore import QTimer
 from PyQt5.QtGui import QImage, QPixmap
 from VideoPlayer import Ui_VideoPlayer
-from opencv_filters import filters
+from opencv_filters import filters, apply_filter
 import time
 from datetime import datetime
 import cv2
@@ -16,6 +16,7 @@ class VideoPlayer_Backend:
         self.ui.setupUi(self.VideoPlayer)
         self.VideoPlayer.show()
         
+        self.filter_name = ""
         self.webcam_checked = self.ui.rdbtnSort.isChecked()
         self.video_speed = self.ui.Speedslider.value()
         self.camera_index = self.ui.availableCameras.currentData() if self.ui.availableCameras.currentData() is not None else 0
@@ -24,6 +25,7 @@ class VideoPlayer_Backend:
         self.ui.btnRefresh.pressed.connect(self.clearVideo)
         self.ui.availableCameras.addItems(self.get_available_cameras())
         self.ui.availableCameras.currentIndexChanged.connect(lambda: self.updateCameraData(self.ui.availableCameras.currentText()))
+        self.ui.availableFilters.currentIndexChanged.connect(lambda: self.updateFilterData(self.ui.availableFilters.currentText()))
         self.ui.btnBrowse_2.pressed.connect(self.capture)
         self.ui.Speedslider.valueChanged.connect(self.updateVideoSpeed)
         self.ui.verticalSlider.valueChanged.connect(self.updateGrayScaleValue)
@@ -37,6 +39,9 @@ class VideoPlayer_Backend:
 
     def updateCameraData(self, data):
         self.camera_index = int(data)
+
+    def updateFilterData(self, data):
+        self.filter_name = data
 
     def updateVideoSpeed(self, value):
         self.video_speed = value / 4
@@ -132,6 +137,13 @@ class VideoPlayer_Backend:
             gray_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
             gray_frame = cv2.convertScaleAbs(gray_frame, alpha=self.grayScale_value / 255.0)
             q_image = QImage(gray_frame.data, gray_frame.shape[1], gray_frame.shape[0], gray_frame.strides[0], QImage.Format_Grayscale8)
+        
+        if self.filter_name is not "" and self.grayScale_value is not 127:
+            filtered_frame = apply_filter(self.filter_name, gray_frame)
+            q_image = QImage(filtered_frame.data, filtered_frame.shape[1], filtered_frame.shape[0], filtered_frame.strides[0], QImage.Format_Grayscale8)
+        elif self.filter_name is not "" and self.grayScale_value is 127:
+            filtered_frame = apply_filter(self.filter_name, frame)
+            q_image = QImage(filtered_frame.data, filtered_frame.shape[1], filtered_frame.shape[0], filtered_frame.strides[0], QImage.Format_BGR888)
 
         pixmap = QPixmap.fromImage(q_image)
         self.ui.label.setPixmap(pixmap)

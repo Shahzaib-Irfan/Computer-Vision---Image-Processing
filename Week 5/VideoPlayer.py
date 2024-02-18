@@ -135,8 +135,9 @@ class Ui_VideoPlayer(object):
 "        border: 1px solid rgba(0, 0, 0, 50);  /* Semi-transparent border */\n"
 "        box-shadow: 2px 2px 5px rgba(0, 0, 0, 50);  /* Shadow effect */\n"
 "    }")
-        self.Speedslider.setMinimum(-2)
-        self.Speedslider.setMaximum(2)
+        self.Speedslider.setMinimum(1)
+        self.Speedslider.setMaximum(8)
+        self.Speedslider.setValue(4)
         self.Speedslider.setPageStep(1)
         self.Speedslider.setOrientation(QtCore.Qt.Horizontal)
         self.Speedslider.setObjectName("Speedslider")
@@ -151,6 +152,7 @@ class Ui_VideoPlayer(object):
 "        box-shadow: 2px 2px 5px rgba(0, 0, 0, 50);  /* Shadow effect */\n"
 "    }")
         self.verticalSlider.setMaximum(255)
+        self.verticalSlider.setValue(127)
         self.verticalSlider.setOrientation(QtCore.Qt.Vertical)
         self.verticalSlider.setObjectName("verticalSlider")
         self.Speedlbl_2 = QtWidgets.QLabel(self.centralwidget)
